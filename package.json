@@ -1,0 +1,30 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Friend Finder - Node & Express Servers",
+  "main": "home.html",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krenaldi/FriendFinder.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "JavaScript"
+  ],
+  "author": "Kris Renaldi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krenaldi/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/krenaldi/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
