@@ -4,7 +4,7 @@
   "description": "Friend Finder - Node & Express Servers",
   "main": "home.html",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
