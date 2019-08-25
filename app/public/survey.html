@@ -155,7 +155,7 @@
         <footer class="footer">
             <div class="container">
                 <p><a href="/api/friends">API Friends List</a> | <a
-                        href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+                        href="https://github.com/krenaldi/FriendFinder">GitHub Repo</a></p>
             </div>
         </footer>
     </div>
@@ -163,7 +163,6 @@
     <!-- Modal -->
     <div id="results-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -172,7 +171,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" src="" alt="#" style="width:75%; height:auto;">
+                    <img id="match-img" src="#" style="width:75%; height:auto;">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -223,8 +222,16 @@
                 };
                 //console.log(userData);
                 //console.log(userData.scores);
+                var currentURL = window.location.origin;
+
                 // AJAX post the data to the friends API.
-                $.post("/api/friends", userData, function (data) {
+                $.post(currentURL + "/api/friends", userData, function (data) {
+                    // // Show the modal with the best match
+                    $("#results-modal").modal("toggle");
+                    
+                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr("src", data.photo);
 
                     // Clear form
                     $("#name").val("");
@@ -239,13 +246,6 @@
                     $("#q8").val("");
                     $("#q9").val("");
                     $("#q10").val("");
-
-                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                    $("#match-name").text(data.name);
-                    $("#match-img").attr("src", data.photo);
-
-                    // // Show the modal with the best match
-                    $("#results-modal").modal("toggle");
                 });
             } else {
                 alert("Please fill out all fields before submitting!");
